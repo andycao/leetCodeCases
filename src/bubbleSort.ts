@@ -11,8 +11,8 @@ function bubbleSort(list: number[]) {
   }
 }
 
-const list = [ 5,6,4,3,2,8,2,1,0];
+const list1 = [ 5,6,4,3,2,8,2,1,0];
 
-bubbleSort(list);
+bubbleSort(list1);
 
-console.log(list);
+console.log(list1);

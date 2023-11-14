@@ -23,7 +23,17 @@ function locateAllByClassName(className) {
 }
 
 const node = locateById("profile");
-console.log(node);
 
 const nodes = locateAllByClassName("row");
-console.log(nodes);
+
+function select(selector) {
+  for (let node of walkPreOrder(document.body)) {
+    if (node.matches(selector)) {
+      return node;
+    }
+  }
+  return null;
+}
+
+const anode = select(".container .row:first-child");
+console.log(anode);
