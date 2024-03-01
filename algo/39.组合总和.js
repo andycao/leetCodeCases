@@ -6,10 +6,10 @@
  * https://leetcode.cn/problems/combination-sum/description/
  *
  * algorithms
- * Medium (72.36%)
- * Likes:    2646
+ * Medium (72.34%)
+ * Likes:    2687
  * Dislikes: 0
- * Total Accepted:    807.3K
+ * Total Accepted:    831.3K
  * Total Submissions: 1.1M
  * Testcase Example:  '[2,3,6,7]\n7'
  *
@@ -65,28 +65,19 @@
  * @return {number[][]}
  */
 var combinationSum = function (candidates, target) {
-  const first = candidates[0];
-
-  console.log(target);
-  if (target < 0) {
-    return [];
-  } else if (target === 0) {
-    return [[]];
+  candidates.sort((a, b) => b - a);
+  const list = [];
+  for (let i = 0; i < candidates.length; i++) {
+    if (candidates[i] < target) {
+      const inner = combinationSum(candidates.slice(i), target - candidates[i]);
+      for (let ele of inner) {
+        list.push([...ele, candidates[i]]);
+      }
+    } else if (candidates[i] === target) {
+      list.push([candidates[i]]);
+    }
   }
 
-  if (candidates.length < 0) {
-    return [];
-  }
-
-  // 有
-  const list1 = combinationSum(candidates, target - first).map((e) => [
-    ...e,
-    first,
-  ]);
-  // 无
-  const noFirst = [...candidates];
-  noFirst.shift();
-  const list2 = combinationSum(noFirst, target);
-  return [...list1, ...list2];
+  return list;
 };
 // @lc code=end
