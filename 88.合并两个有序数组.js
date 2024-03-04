@@ -77,11 +77,17 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function (nums1, m, nums2, n) {
-  let i,
+  let i = 0,
     j = 0;
   const res = [];
   while (i < m || j < n) {
-    if (j >= n || nums1[i] <= num2[j]) {
+    if (i === m) {
+      res.push(nums2[j]);
+      j++;
+    } else if (j === n) {
+      res.push(nums1[i]);
+      i++;
+    } else if (nums1[i] <= nums2[j]) {
       res.push(nums1[i]);
       i++;
     } else {
@@ -89,6 +95,10 @@ var merge = function (nums1, m, nums2, n) {
       j++;
     }
   }
-  nums1 = res;
+
+  // 这里赋值给nums1 需要逐一赋值
+  for (let i = 0; i != m + n; ++i) {
+    nums1[i] = res[i];
+}
 };
 // @lc code=end
