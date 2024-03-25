@@ -1,15 +1,16 @@
 const fs = require("fs");
-
+const fileUrl =
+  "https://github.com/andycao/leetCodeCases/blob/master/src/algo/";
 const filePath = `${__dirname}/../algo/`;
 
 fs.readdir(filePath, (err, files) => {
   if (!null) {
     const list = [];
-    files.forEach((file) => {
+    files.sort((a, b) => parseInt(a) - parseInt(b)).forEach((file) => {
       console.log(file);
       list.push({
         name: file,
-        encode: encodeURIComponent(file)
+        url: `${fileUrl}${encodeURIComponent(file)}`
       });
     });
 
