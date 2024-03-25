@@ -1,6 +1,22 @@
 {
-  "dependencies": {
-    "typescript": "^5.2.2"
+  "name": "leetcode-cases",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "serve": "serve ./dist"
   },
-  "type": "module"
+  "dependencies": {
+    "antd": "^5.12.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@vitejs/plugin-react": "^1.0.7",
+    "typescript": "^5.2.2",
+    "vite": "^2.7.2"
+  }
 }

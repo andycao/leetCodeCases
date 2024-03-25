@@ -1,2 +1,5 @@
-add 1
-add 2
+# leetcode answer site
+
+## collection of my answers
+
+build and deploy on github
